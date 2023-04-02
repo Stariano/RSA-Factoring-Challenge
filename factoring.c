@@ -17,7 +17,7 @@ int factoring(char *buffer)
 	{
 		if (number % itr == 0)
 		{
-			printf("%d=%d*%d\n", number, number / itr, itr);
+			printf("%lu=%lu*%lu\n", (unsigned long)number, (unsigned long)number / (unsigned long)itr, (unsigned long)itr);
 			break;
 		}
 	}
