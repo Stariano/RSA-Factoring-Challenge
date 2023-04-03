@@ -1,4 +1,6 @@
 #include "factors.h"
+#include "inttypes.h"
+#define MAX 100
 
 /**
  * factoring - This function will take a number and give the final factor
@@ -8,17 +10,22 @@
 
 int factoring(char *buffer)
 {
-	u_int32_t number;
-	u_int32_t itr;
+	long int number;
+	long int itr;
 
+	/* kk = 1718944270642558716715;
+	kkk = 1718944270642558716715; */
+	
 	number = atoi(buffer);
 
 	for (itr = 2; itr < number; itr++)
 	{
 		if (number % itr == 0)
 		{
-			printf("%lu=%lu*%lu\n", (unsigned long)number, (unsigned long)number / (unsigned long)itr, (unsigned long)itr);
 			break;
-		}
+		};
 	}
+
+	printf("%li=%li \n", number , itr);
+	return (0);
 }

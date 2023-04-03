@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
 {
 	size_t len = 0;
 	FILE *fp;
-	char *buffer = NULL;
+	const size_t line_size = 300;
+	char *buffer = malloc(line_size);
 
 	if (argc != 2)
 	{
@@ -26,11 +27,13 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	while ((getline(&buffer, &len, fp)) != -1)
+	while (fgets(buffer, line_size, fp) != NULL)
 	{
+		printf("%s", buffer);
 		factoring(buffer);
 	}
 
 	fclose(fp);
+	free(buffer);
 	return (0);
 }
